@@ -274,7 +274,7 @@ public class Init_Window extends javax.swing.JFrame {
      if(abrir == buscador.APPROVE_OPTION){
        patch = buscador.getSelectedFile().getAbsolutePath();
        permitir = true;
-       Lexico lex = new Lexico(patch);
+       Lexico lex = new Lexico(patch, this);
        lex.Analizador(this);
      }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
