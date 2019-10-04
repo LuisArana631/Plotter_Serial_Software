@@ -33,13 +33,14 @@ public class Lexico {
     
     public void Analizador(JFrame frame){
         try {
-                
+            
             FileInputStream file =  new FileInputStream(patch);
             DataInputStream entrada = new DataInputStream(file);
             BufferedReader bf = new BufferedReader(new InputStreamReader(entrada));    
             String linea="";
             patch = "";
             tokens.clear();
+            error = false;
             
             while((linea = bf.readLine()) != null){                
                 char[] array = linea.toCharArray();
@@ -159,6 +160,10 @@ public class Lexico {
             if(!error){
              JOptionPane.showMessageDialog(frame, "¡Dibujo cargado exitosamente!");    
             } else {
+                if(!Init_Window.coordenadas.isEmpty()){
+                  Init_Window.coordenadas.clear();  
+                }
+             
              JOptionPane.showMessageDialog(frame, "¡Error en archivo de entrada!"); 
             }
             

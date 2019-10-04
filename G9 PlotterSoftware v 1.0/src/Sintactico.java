@@ -13,7 +13,8 @@ public class Sintactico {
     private Token tokenaux;
     private int token = -1;
     private JFrame frame;
-    
+    private int xtemp = 0;
+    private int ytemp = 0;
     public Sintactico(ArrayList<Token> tokens, JFrame frame){
         this.tokens = tokens;
         this.frame = frame;
@@ -104,6 +105,9 @@ public class Sintactico {
         }
     }
     
+    public void AgregarCoordenada(int x, int y){
+        Init_Window.coordenadas.add(new Coordenada(x,y));
+    }
     
     public void Coordenada(){
         if(tokenaux.getTk().equals("TK_LA")){ //VALIDAMOS QUE SEA LLAVE ABIERTA
@@ -122,6 +126,7 @@ public class Sintactico {
                                          if(token<tokens.size()-1){
                                              tokenaux = NextToken();
                                              if(tokenaux.getTk().equals("TK_NUMERO")){ //VALIDAMOS QUE SEA UN NÚMERO
+                                                 xtemp = Integer.parseInt(tokenaux.getLexema());
                                                  if(token<tokens.size()-1){ //VALIDAMOS QUE EXISTEN MÁS TOKENS EN LA LISTA
                                                    tokenaux = NextToken();
                                                    if(tokenaux.getTk().equals("TK_COMA")){ //VALIDAMOS QUE SEA UNA COMA
@@ -140,10 +145,17 @@ public class Sintactico {
                                                                                 if(token<tokens.size()-1){ //VALIDAMOS QUE EXISTEN  MÁS TOKENS EN LA LISTA
                                                                                    tokenaux = NextToken();
                                                                                    if(tokenaux.getTk().equals("TK_NUMERO")){ //VALIDAMOS QUE SEA UN NUMERO
+                                                                                       ytemp = Integer.parseInt(tokenaux.getLexema());
                                                                                        if(token<tokens.size()-1){ //VALIDAMOS QUE EXISTEN  MÁS TOKENS EN LA LISTA
                                                                                         tokenaux = NextToken();
-                                                                                            if(!tokenaux.getTk().equals("TK_LC")){ // VALIDAMOS QUE SEA UNA LLAVE CERRADA
-                                                                                             Lexico.error = true;    
+                                                                                            if(tokenaux.getTk().equals("TK_LC")){ // VALIDAMOS QUE SEA UNA LLAVE CERRADA
+                                                                                               if(xtemp<8 && ytemp < 16){
+                                                                                                AgregarCoordenada(xtemp, ytemp); 
+                                                                                               } else {
+                                                                                                 Lexico.error = true;  
+                                                                                               }
+                                                                                            } else {
+                                                                                               Lexico.error = true;   
                                                                                             }
                                                                                        }else {
                                                                                         Lexico.error = true;     

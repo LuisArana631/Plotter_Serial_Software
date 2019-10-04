@@ -29,6 +29,7 @@ public class Init_Window extends javax.swing.JFrame {
     private FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos .draw", "draw");
     Boolean permitir;
     String patch="";
+    public static ArrayList<Coordenada> coordenadas = new ArrayList<Coordenada>();
     
     
     
@@ -59,7 +60,18 @@ public class Init_Window extends javax.swing.JFrame {
         }
     }
     
-
+    private void SetLoad(){
+       
+       for(int i = 0;i<fil;i++){
+            for(int j = 0; j<col ; j++){
+                tablero[i][j].setBackground(Color.WHITE);
+            }
+        }
+       
+       for(Coordenada c : coordenadas){
+           tablero[c.GetY()][c.GetX()].setBackground(Color.BLACK);
+       } 
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -276,6 +288,9 @@ public class Init_Window extends javax.swing.JFrame {
        permitir = true;
        Lexico lex = new Lexico(patch, this);
        lex.Analizador(this);
+      if(!coordenadas.isEmpty()){
+           SetLoad();
+       }
      }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
