@@ -53,6 +53,10 @@ public class Init_Window extends javax.swing.JFrame {
 
         PanelPrincipal = new javax.swing.JPanel();
         PanelMatriz = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        bnegro = new javax.swing.JButton();
+        bblanco1 = new javax.swing.JButton();
+        bclear = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -83,12 +87,62 @@ public class Init_Window extends javax.swing.JFrame {
             .addGap(0, 800, Short.MAX_VALUE)
         );
 
+        jLabel1.setFont(new java.awt.Font("SquareFont", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Colores");
+
+        bnegro.setBackground(new java.awt.Color(0, 0, 0));
+        bnegro.setFont(new java.awt.Font("SquareFont", 1, 14)); // NOI18N
+        bnegro.setForeground(new java.awt.Color(255, 255, 255));
+        bnegro.setText("NEGRO");
+        bnegro.setFocusable(false);
+        bnegro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnegroActionPerformed(evt);
+            }
+        });
+
+        bblanco1.setBackground(new java.awt.Color(255, 255, 255));
+        bblanco1.setFont(new java.awt.Font("SquareFont", 1, 14)); // NOI18N
+        bblanco1.setText("BLANCO");
+        bblanco1.setFocusable(false);
+        bblanco1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bblanco1ActionPerformed(evt);
+            }
+        });
+
+        bclear.setBackground(new java.awt.Color(255, 255, 255));
+        bclear.setFont(new java.awt.Font("SquareFont", 1, 14)); // NOI18N
+        bclear.setText("CLEAR");
+        bclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bclearActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(342, Short.MAX_VALUE)
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
+                        .addContainerGap(59, Short.MAX_VALUE)
+                        .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82))
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                .addGap(119, 119, 119)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -96,8 +150,19 @@ public class Init_Window extends javax.swing.JFrame {
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(29, Short.MAX_VALUE))
+                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138))))
         );
 
         jMenu1.setText("File");
@@ -143,9 +208,9 @@ public class Init_Window extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(PanelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,6 +229,22 @@ public class Init_Window extends javax.swing.JFrame {
                 + "Jose Alejandro Santizo Cotto - 201709309\n Oscar Armin Crisostomo Ruiz - 201709140\n Christopher Alexander Cobar Asturias - 201709272"                
                 , "About G9 PlotterSoftware v1.0", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void bblanco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bblanco1ActionPerformed
+      color = "white";
+    }//GEN-LAST:event_bblanco1ActionPerformed
+
+    private void bnegroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnegroActionPerformed
+      color = "black";
+    }//GEN-LAST:event_bnegroActionPerformed
+
+    private void bclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bclearActionPerformed
+       for(int i = 0;i<fil;i++){
+            for(int j = 0; j<col ; j++){
+                tablero[i][j].setBackground(Color.WHITE);
+            }
+        }
+    }//GEN-LAST:event_bclearActionPerformed
 
   
     public static void main(String args[]) {
@@ -196,6 +277,10 @@ public class Init_Window extends javax.swing.JFrame {
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.JPanel PanelMatriz;
     private javax.swing.JPanel PanelPrincipal;
+    private javax.swing.JButton bblanco1;
+    private javax.swing.JButton bclear;
+    private javax.swing.JButton bnegro;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
