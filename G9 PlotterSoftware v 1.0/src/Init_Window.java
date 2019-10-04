@@ -1,9 +1,18 @@
 
 import java.awt.Color;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 /**
@@ -17,6 +26,11 @@ public class Init_Window extends javax.swing.JFrame {
     private int fil = 16;
     private int col = 8;
     Boton[][] tablero;
+    private FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos .draw", "draw");
+    Boolean permitir;
+    String patch="";
+    
+    
     
     public Init_Window() {
         
@@ -169,6 +183,11 @@ public class Init_Window extends javax.swing.JFrame {
 
         jMenuItem1.setText("Open");
         jMenuItem1.setToolTipText("");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Save");
@@ -245,6 +264,20 @@ public class Init_Window extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_bclearActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+     String pcusuario = System.getProperty("user.home");
+     JFileChooser buscador = new JFileChooser(pcusuario +"/Desktop");
+     buscador.setAcceptAllFileFilterUsed(false);
+     buscador.setFileFilter(filtro);
+     int abrir = buscador.showOpenDialog(this);
+     if(abrir == buscador.APPROVE_OPTION){
+       patch = buscador.getSelectedFile().getAbsolutePath();
+       permitir = true;
+       Lexico lex = new Lexico(patch);
+       lex.Analizador(this);
+     }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
   
     public static void main(String args[]) {
