@@ -92,10 +92,16 @@ public class Init_Window extends javax.swing.JFrame {
 
         PanelPrincipal = new javax.swing.JPanel();
         PanelMatriz = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lfiguras = new javax.swing.JLabel();
         bnegro = new javax.swing.JButton();
         bblanco1 = new javax.swing.JButton();
         bclear = new javax.swing.JButton();
+        lcolores = new javax.swing.JLabel();
+        bcirculo = new javax.swing.JButton();
+        btriangulo = new javax.swing.JButton();
+        bcuadrado = new javax.swing.JButton();
+        bestrella = new javax.swing.JButton();
+        blinea = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -126,10 +132,10 @@ public class Init_Window extends javax.swing.JFrame {
             .addGap(0, 800, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("SquareFont", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Colores");
+        lfiguras.setFont(new java.awt.Font("SquareFont", 0, 24)); // NOI18N
+        lfiguras.setForeground(new java.awt.Color(255, 204, 0));
+        lfiguras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lfiguras.setText("figures");
 
         bnegro.setBackground(new java.awt.Color(0, 0, 0));
         bnegro.setFont(new java.awt.Font("SquareFont", 1, 14)); // NOI18N
@@ -161,48 +167,127 @@ public class Init_Window extends javax.swing.JFrame {
             }
         });
 
+        lcolores.setFont(new java.awt.Font("SquareFont", 0, 24)); // NOI18N
+        lcolores.setForeground(new java.awt.Color(255, 204, 0));
+        lcolores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lcolores.setText("COLORS");
+
+        bcirculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circle.png"))); // NOI18N
+        bcirculo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        bcirculo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/circle2.png"))); // NOI18N
+        bcirculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bcirculoActionPerformed(evt);
+            }
+        });
+
+        btriangulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/triangle.png"))); // NOI18N
+        btriangulo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        btriangulo.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/triangle2.png"))); // NOI18N
+        btriangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btrianguloActionPerformed(evt);
+            }
+        });
+
+        bcuadrado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/square.png"))); // NOI18N
+        bcuadrado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        bcuadrado.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/square2.png"))); // NOI18N
+        bcuadrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bcuadradoActionPerformed(evt);
+            }
+        });
+
+        bestrella.setIcon(new javax.swing.ImageIcon(getClass().getResource("/star.png"))); // NOI18N
+        bestrella.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        bestrella.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/star2.png"))); // NOI18N
+        bestrella.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bestrellaActionPerformed(evt);
+            }
+        });
+
+        blinea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/line.png"))); // NOI18N
+        blinea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        blinea.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/line2.png"))); // NOI18N
+        blinea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                blineaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
+            .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
-                        .addContainerGap(59, Short.MAX_VALUE)
-                        .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(62, Short.MAX_VALUE)
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bcirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bcuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(59, 59, 59)
+                                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bestrella, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(82, 82, 82))
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
                         .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(129, 129, 129)
+                                .addComponent(lcolores, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(133, 133, 133)
+                                .addComponent(lfiguras, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                .addGap(135, 135, 135)
+                                .addComponent(blinea, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(22, 22, 22))
         );
         PanelPrincipalLayout.setVerticalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
+                .addComponent(lcolores, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lfiguras, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(29, Short.MAX_VALUE))
-                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(138, 138, 138))))
+                    .addComponent(bcirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bcuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bestrella, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addComponent(blinea, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
+
+        BarraMenu.setFont(new java.awt.Font("SquareFont", 0, 18)); // NOI18N
 
         jMenu1.setText("File");
 
@@ -451,6 +536,263 @@ public class Init_Window extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void bcirculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcirculoActionPerformed
+          for(int i = 0;i<fil;i++){
+            for(int j = 0; j<col ; j++){
+                tablero[i][j].setBackground(Color.WHITE);
+                tablero[i][j].SetColor("white");
+            }
+        }
+        tablero[3][3].setBackground(Color.BLACK);
+        tablero[3][3].SetColor("black");
+        tablero[3][4].setBackground(Color.BLACK);
+        tablero[3][4].SetColor("black");
+        tablero[4][1].setBackground(Color.BLACK);
+        tablero[4][1].SetColor("black");
+        tablero[4][2].setBackground(Color.BLACK);
+        tablero[4][2].SetColor("black");
+        tablero[4][5].setBackground(Color.BLACK);
+        tablero[4][5].SetColor("black");
+        tablero[4][6].setBackground(Color.BLACK);
+        tablero[4][6].SetColor("black");
+        tablero[5][1].setBackground(Color.BLACK);
+        tablero[5][1].SetColor("black");
+        tablero[5][6].setBackground(Color.BLACK);
+        tablero[5][6].SetColor("black");
+        tablero[6][0].setBackground(Color.BLACK);
+        tablero[6][0].SetColor("black");
+        tablero[6][7].setBackground(Color.BLACK);
+        tablero[6][7].SetColor("black");
+        tablero[7][0].setBackground(Color.BLACK);
+        tablero[7][0].SetColor("black");
+        tablero[7][7].setBackground(Color.BLACK);
+        tablero[7][7].SetColor("black");
+        tablero[8][0].setBackground(Color.BLACK);
+        tablero[8][0].SetColor("black");
+        tablero[8][7].setBackground(Color.BLACK);
+        tablero[8][7].SetColor("black");
+        tablero[9][0].setBackground(Color.BLACK);
+        tablero[9][0].SetColor("black");
+        tablero[9][7].setBackground(Color.BLACK);
+        tablero[9][7].SetColor("black");
+        tablero[10][1].setBackground(Color.BLACK);
+        tablero[10][1].SetColor("black");
+        tablero[10][6].setBackground(Color.BLACK);
+        tablero[10][6].SetColor("black");
+        tablero[11][1].setBackground(Color.BLACK);
+        tablero[11][1].SetColor("black");
+        tablero[11][2].setBackground(Color.BLACK);
+        tablero[11][2].SetColor("black");
+        tablero[11][5].setBackground(Color.BLACK);
+        tablero[11][5].SetColor("black");
+        tablero[11][6].setBackground(Color.BLACK);
+        tablero[11][6].SetColor("black");
+        tablero[12][3].setBackground(Color.BLACK);
+        tablero[12][3].SetColor("black");
+        tablero[12][4].setBackground(Color.BLACK);
+        tablero[12][4].SetColor("black");
+    }//GEN-LAST:event_bcirculoActionPerformed
+
+    private void btrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btrianguloActionPerformed
+        for(int i = 0;i<fil;i++){
+            for(int j = 0; j<col ; j++){
+                tablero[i][j].setBackground(Color.WHITE);
+                tablero[i][j].SetColor("white");
+            }
+        }
+        
+        tablero[5][3].setBackground(Color.BLACK);
+        tablero[5][3].SetColor("black");
+        tablero[5][4].setBackground(Color.BLACK);
+        tablero[5][4].SetColor("black");
+        tablero[6][2].setBackground(Color.BLACK);
+        tablero[6][2].SetColor("black");
+        tablero[6][5].setBackground(Color.BLACK);
+        tablero[6][5].SetColor("black");
+        tablero[7][1].setBackground(Color.BLACK);
+        tablero[7][1].SetColor("black");
+        tablero[7][6].setBackground(Color.BLACK);
+        tablero[7][6].SetColor("black");
+        tablero[8][0].setBackground(Color.BLACK);
+        tablero[8][0].SetColor("black");
+        tablero[8][7].setBackground(Color.BLACK);
+        tablero[8][7].SetColor("black");
+        tablero[9][0].setBackground(Color.BLACK);
+        tablero[9][0].SetColor("black");
+        tablero[9][1].setBackground(Color.BLACK);
+        tablero[9][1].SetColor("black");
+        tablero[9][2].setBackground(Color.BLACK);
+        tablero[9][2].SetColor("black");
+        tablero[9][3].setBackground(Color.BLACK);
+        tablero[9][3].SetColor("black");
+        tablero[9][4].setBackground(Color.BLACK);
+        tablero[9][4].SetColor("black");
+        tablero[9][5].setBackground(Color.BLACK);
+        tablero[9][5].SetColor("black");
+        tablero[9][6].setBackground(Color.BLACK);
+        tablero[9][6].SetColor("black");
+        tablero[9][7].setBackground(Color.BLACK);
+        tablero[9][7].SetColor("black");
+        
+    }//GEN-LAST:event_btrianguloActionPerformed
+
+    private void bcuadradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcuadradoActionPerformed
+     for(int i = 0;i<fil;i++){
+            for(int j = 0; j<col ; j++){
+                tablero[i][j].setBackground(Color.WHITE);
+                tablero[i][j].SetColor("white");
+            }
+        }
+     
+     tablero[4][1].setBackground(Color.BLACK);
+     tablero[4][1].SetColor("black");
+     tablero[4][2].setBackground(Color.BLACK);
+     tablero[4][2].SetColor("black");
+     tablero[4][3].setBackground(Color.BLACK);
+     tablero[4][3].SetColor("black");
+     tablero[4][4].setBackground(Color.BLACK);
+     tablero[4][4].SetColor("black");
+     tablero[4][5].setBackground(Color.BLACK);
+     tablero[4][5].SetColor("black");
+     tablero[4][6].setBackground(Color.BLACK);
+     tablero[4][6].SetColor("black");
+     tablero[5][1].setBackground(Color.BLACK);
+     tablero[5][1].SetColor("black");
+     tablero[5][6].setBackground(Color.BLACK);
+     tablero[5][6].SetColor("black");
+     tablero[6][1].setBackground(Color.BLACK);
+     tablero[6][1].SetColor("black");
+     tablero[6][6].setBackground(Color.BLACK);
+     tablero[6][6].SetColor("black");
+     tablero[7][1].setBackground(Color.BLACK);
+     tablero[7][1].SetColor("black");
+     tablero[7][6].setBackground(Color.BLACK);
+     tablero[7][6].SetColor("black");
+     tablero[8][1].setBackground(Color.BLACK);
+     tablero[8][1].SetColor("black");
+     tablero[8][6].setBackground(Color.BLACK);
+     tablero[8][6].SetColor("black");
+     tablero[9][1].setBackground(Color.BLACK);
+     tablero[9][1].SetColor("black");
+     tablero[9][6].setBackground(Color.BLACK);
+     tablero[9][6].SetColor("black");
+     tablero[10][1].setBackground(Color.BLACK);
+     tablero[10][1].SetColor("black");
+     tablero[10][6].setBackground(Color.BLACK);
+     tablero[10][6].SetColor("black");
+     tablero[11][1].setBackground(Color.BLACK);
+     tablero[11][1].SetColor("black");
+     tablero[11][2].setBackground(Color.BLACK);
+     tablero[11][2].SetColor("black");
+     tablero[11][3].setBackground(Color.BLACK);
+     tablero[11][3].SetColor("black");
+     tablero[11][4].setBackground(Color.BLACK);
+     tablero[11][4].SetColor("black");
+     tablero[11][5].setBackground(Color.BLACK);
+     tablero[11][5].SetColor("black");
+     tablero[11][6].setBackground(Color.BLACK);
+     tablero[11][6].SetColor("black");
+    }//GEN-LAST:event_bcuadradoActionPerformed
+
+    private void bestrellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bestrellaActionPerformed
+    for(int i = 0;i<fil;i++){
+        for(int j = 0; j<col ; j++){
+                tablero[i][j].setBackground(Color.WHITE);
+                tablero[i][j].SetColor("white");
+        }
+    }
+    
+    tablero[2][3].setBackground(Color.BLACK);
+    tablero[2][3].SetColor("black");
+    tablero[2][4].setBackground(Color.BLACK);
+    tablero[2][4].SetColor("black");
+    tablero[3][3].setBackground(Color.BLACK);
+    tablero[3][3].SetColor("black");
+    tablero[3][4].setBackground(Color.BLACK);
+    tablero[3][4].SetColor("black");
+    tablero[4][2].setBackground(Color.BLACK);
+    tablero[4][2].SetColor("black");
+    tablero[4][5].setBackground(Color.BLACK);
+    tablero[4][5].SetColor("black");
+    tablero[5][0].setBackground(Color.BLACK);
+    tablero[5][0].SetColor("black");
+    tablero[5][1].setBackground(Color.BLACK);
+    tablero[5][1].SetColor("black");
+    tablero[5][2].setBackground(Color.BLACK);
+    tablero[5][2].SetColor("black");
+    tablero[5][5].setBackground(Color.BLACK);
+    tablero[5][5].SetColor("black");
+    tablero[5][6].setBackground(Color.BLACK);
+    tablero[5][6].SetColor("black");
+    tablero[5][7].setBackground(Color.BLACK);
+    tablero[5][7].SetColor("black");
+    tablero[6][0].setBackground(Color.BLACK);
+    tablero[6][0].SetColor("black");
+    tablero[6][7].setBackground(Color.BLACK);
+    tablero[6][7].SetColor("black");
+    tablero[7][1].setBackground(Color.BLACK);
+    tablero[7][1].SetColor("black");
+    tablero[7][6].setBackground(Color.BLACK);
+    tablero[7][6].SetColor("black");
+    tablero[8][2].setBackground(Color.BLACK);
+    tablero[8][2].SetColor("black");
+    tablero[8][5].setBackground(Color.BLACK);
+    tablero[8][5].SetColor("black");
+    tablero[9][2].setBackground(Color.BLACK);
+    tablero[9][2].SetColor("black");
+    tablero[9][5].setBackground(Color.BLACK);
+    tablero[9][5].SetColor("black");
+    tablero[10][1].setBackground(Color.BLACK);
+    tablero[10][1].SetColor("black");
+    tablero[10][3].setBackground(Color.BLACK);
+    tablero[10][3].SetColor("black");
+    tablero[10][4].setBackground(Color.BLACK);
+    tablero[10][4].SetColor("black");
+    tablero[10][6].setBackground(Color.BLACK);
+    tablero[10][6].SetColor("black");
+    tablero[11][0].setBackground(Color.BLACK);
+    tablero[11][0].SetColor("black");
+    tablero[11][2].setBackground(Color.BLACK);
+    tablero[11][2].SetColor("black");
+    tablero[11][5].setBackground(Color.BLACK);
+    tablero[11][5].SetColor("black");
+    tablero[11][7].setBackground(Color.BLACK);
+    tablero[11][7].SetColor("black");
+    tablero[12][0].setBackground(Color.BLACK);
+    tablero[12][0].SetColor("black");
+    tablero[12][1].setBackground(Color.BLACK);
+    tablero[12][1].SetColor("black");
+    tablero[12][6].setBackground(Color.BLACK);
+    tablero[12][6].SetColor("black");
+    tablero[12][7].setBackground(Color.BLACK);
+    tablero[12][7].SetColor("black");
+    }//GEN-LAST:event_bestrellaActionPerformed
+
+    private void blineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blineaActionPerformed
+     for(int i = 0;i<fil;i++){
+        for(int j = 0; j<col ; j++){
+                tablero[i][j].setBackground(Color.WHITE);
+                tablero[i][j].SetColor("white");
+        }
+    }          
+    tablero[7][0].setBackground(Color.BLACK);
+    tablero[7][0].SetColor("black");
+    tablero[7][1].setBackground(Color.BLACK);
+    tablero[7][1].SetColor("black");
+    tablero[7][2].setBackground(Color.BLACK);
+    tablero[7][2].SetColor("black");
+    tablero[7][3].setBackground(Color.BLACK);
+    tablero[7][3].SetColor("black");
+    tablero[7][4].setBackground(Color.BLACK);
+    tablero[7][4].SetColor("black");
+    tablero[7][5].setBackground(Color.BLACK);
+    tablero[7][5].SetColor("black");
+    tablero[7][6].setBackground(Color.BLACK);
+    tablero[7][6].SetColor("black");
+    tablero[7][7].setBackground(Color.BLACK);
+    tablero[7][7].SetColor("black");
+    }//GEN-LAST:event_blineaActionPerformed
+
   
     public static void main(String args[]) {
    
@@ -483,9 +825,13 @@ public class Init_Window extends javax.swing.JFrame {
     private javax.swing.JPanel PanelMatriz;
     private javax.swing.JPanel PanelPrincipal;
     private javax.swing.JButton bblanco1;
+    private javax.swing.JButton bcirculo;
     private javax.swing.JButton bclear;
+    private javax.swing.JButton bcuadrado;
+    private javax.swing.JButton bestrella;
+    private javax.swing.JButton blinea;
     private javax.swing.JButton bnegro;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btriangulo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -494,5 +840,7 @@ public class Init_Window extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JLabel lcolores;
+    private javax.swing.JLabel lfiguras;
     // End of variables declaration//GEN-END:variables
 }
