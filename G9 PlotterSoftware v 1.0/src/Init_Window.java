@@ -4,11 +4,18 @@ import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -25,12 +32,12 @@ public class Init_Window extends javax.swing.JFrame {
     public static String color;
     private int fil = 16;
     private int col = 8;
-    Boton[][] tablero;
+    private Boton[][] tablero;
     private FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos .draw", "draw");
-    Boolean permitir;
-    String patch="";
+    private Boolean permitir;
+    private String patch="";
     public static ArrayList<Coordenada> coordenadas = new ArrayList<Coordenada>();
-    
+    private String  openfile = "";
     
     
     public Init_Window() {
@@ -60,6 +67,11 @@ public class Init_Window extends javax.swing.JFrame {
         }
     }
     
+    
+    public void AgregarCoordenada(int x, int y){
+        coordenadas.add(new Coordenada(x,y));
+    }
+    
     private void SetLoad(){
        
        for(int i = 0;i<fil;i++){
@@ -70,6 +82,7 @@ public class Init_Window extends javax.swing.JFrame {
        
        for(Coordenada c : coordenadas){
            tablero[c.GetY()][c.GetX()].setBackground(Color.BLACK);
+            tablero[c.GetY()][c.GetX()].SetColor("black");
        } 
     }
    
@@ -203,9 +216,19 @@ public class Init_Window extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Save");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Save As...");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Close");
@@ -273,6 +296,7 @@ public class Init_Window extends javax.swing.JFrame {
        for(int i = 0;i<fil;i++){
             for(int j = 0; j<col ; j++){
                 tablero[i][j].setBackground(Color.WHITE);
+                tablero[i][j].SetColor("white");
             }
         }
     }//GEN-LAST:event_bclearActionPerformed
@@ -285,6 +309,7 @@ public class Init_Window extends javax.swing.JFrame {
      int abrir = buscador.showOpenDialog(this);
      if(abrir == buscador.APPROVE_OPTION){
        patch = buscador.getSelectedFile().getAbsolutePath();
+       openfile = buscador.getSelectedFile().getAbsolutePath();
        permitir = true;
        Lexico lex = new Lexico(patch, this);
        lex.Analizador(this);
@@ -293,6 +318,138 @@ public class Init_Window extends javax.swing.JFrame {
        }
      }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        if(openfile != ""){
+              try {
+                File file = new File(openfile);
+                FileWriter fr = new FileWriter(file, false);
+                BufferedWriter br = new BufferedWriter(fr);
+                PrintWriter writer = new PrintWriter(br);
+                writer.println("{");
+                writer.println("\"Coordenadas\": [");
+                Init_Window.coordenadas.clear();
+                 for(int i = 0;i<fil;i++){
+                for(int j = 0; j<col ; j++){
+                        if(tablero[i][j].getColor().equals("black")){
+                          AgregarCoordenada(j,i);
+                        }
+                    }
+                }                            
+                for(Coordenada c : coordenadas){
+                if(coordenadas.indexOf(c) == (coordenadas.size()-1)){
+                 String line = String.format("{ \"X\": %s , \"Y\": %s }",c.GetX(),c.GetY());
+                writer.println(line);  
+                } else {
+                 String line = String.format("{ \"X\": %s , \"Y\": %s },",c.GetX(),c.GetY());
+                writer.println(line);  
+                    }                                      
+                }
+                writer.println("]");
+                writer.println("}");
+                writer.close();
+            } catch (IOException ex) {
+                
+            }
+        } else {
+              String pcusuario = System.getProperty("user.home");
+     JFileChooser buscador = new JFileChooser(pcusuario +"/Desktop");
+     buscador.setAcceptAllFileFilterUsed(false);
+     buscador.setFileFilter(filtro);
+     int save = buscador.showSaveDialog(this);
+     
+     if(save == buscador.APPROVE_OPTION){
+         String dir = buscador.getSelectedFile().getAbsolutePath();
+         if(!dir.endsWith(".draw") && !dir.endsWith(".txt")){
+             dir+=".draw";
+         }
+         
+         
+            try {
+                File file = new File(dir);
+                FileWriter fr = new FileWriter(file, false);
+                BufferedWriter br = new BufferedWriter(fr);
+                PrintWriter writer = new PrintWriter(br);
+                writer.println("{");
+                writer.println("\"Coordenadas\": [");
+                Init_Window.coordenadas.clear();
+                 for(int i = 0;i<fil;i++){
+                for(int j = 0; j<col ; j++){
+                        if(tablero[i][j].getColor().equals("black")){
+                          AgregarCoordenada(j,i);
+                        }
+                    }
+                }                            
+                for(Coordenada c : coordenadas){
+                if(coordenadas.indexOf(c) == (coordenadas.size()-1)){
+                 String line = String.format("{ \"X\": %s , \"Y\": %s }",c.GetX(),c.GetY());
+                writer.println(line);  
+                } else {
+                 String line = String.format("{ \"X\": %s , \"Y\": %s },",c.GetX(),c.GetY());
+                writer.println(line);  
+                    }                                      
+                }
+                writer.println("]");
+                writer.println("}");
+                writer.close();
+            } catch (IOException ex) {
+                
+            }
+        
+       
+     }
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        String pcusuario = System.getProperty("user.home");
+     JFileChooser buscador = new JFileChooser(pcusuario +"/Desktop");
+     buscador.setAcceptAllFileFilterUsed(false);
+     buscador.setFileFilter(filtro);
+     int save = buscador.showSaveDialog(this);
+     
+     if(save == buscador.APPROVE_OPTION){
+         String dir = buscador.getSelectedFile().getAbsolutePath();
+         if(!dir.endsWith(".draw") && !dir.endsWith(".txt")){
+             dir+=".draw";
+         }
+         
+         
+            try {
+                File file = new File(dir);
+                FileWriter fr = new FileWriter(file, false);
+                BufferedWriter br = new BufferedWriter(fr);
+                PrintWriter writer = new PrintWriter(br);
+                writer.println("{");
+                writer.println("\"Coordenadas\": [");
+                Init_Window.coordenadas.clear();
+                 for(int i = 0;i<fil;i++){
+                for(int j = 0; j<col ; j++){
+                        if(tablero[i][j].getColor().equals("black")){
+                          AgregarCoordenada(j,i);
+                        }
+                    }
+                }                            
+                for(Coordenada c : coordenadas){
+                if(coordenadas.indexOf(c) == (coordenadas.size()-1)){
+                 String line = String.format("{ \"X\": %s , \"Y\": %s }",c.GetX(),c.GetY());
+                writer.println(line);  
+                } else {
+                 String line = String.format("{ \"X\": %s , \"Y\": %s },",c.GetX(),c.GetY());
+                writer.println(line);  
+                    }                                      
+                }
+                writer.println("]");
+                writer.println("}");
+                writer.close();
+            } catch (IOException ex) {
+                
+            }
+        
+       
+     }
+
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
   
     public static void main(String args[]) {
