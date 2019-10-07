@@ -396,6 +396,7 @@ public class Init_Window extends javax.swing.JFrame {
        patch = buscador.getSelectedFile().getAbsolutePath();
        openfile = buscador.getSelectedFile().getAbsolutePath();
        permitir = true;
+       coordenadas.clear();
        Lexico lex = new Lexico(patch, this);
        lex.Analizador(this);
       if(!coordenadas.isEmpty()){
