@@ -37,6 +37,7 @@ public class Init_Window extends javax.swing.JFrame {
     private Boolean permitir;
     private String patch="";
     public static ArrayList<Coordenada> coordenadas = new ArrayList<Coordenada>();
+    public static ArrayList<Coordenada> printlist = new ArrayList<Coordenada>();
     private String  openfile = "";
     
     
@@ -72,6 +73,11 @@ public class Init_Window extends javax.swing.JFrame {
         coordenadas.add(new Coordenada(x,y));
     }
     
+    public void AgregarXYtoPrint(int x, int y){
+        printlist.add(new Coordenada(x,y));
+    }
+    
+    
     private void SetLoad(){
        
        for(int i = 0;i<fil;i++){
@@ -102,6 +108,8 @@ public class Init_Window extends javax.swing.JFrame {
         bcuadrado = new javax.swing.JButton();
         bestrella = new javax.swing.JButton();
         blinea = new javax.swing.JButton();
+        lfiguras1 = new javax.swing.JLabel();
+        bprint = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -140,7 +148,7 @@ public class Init_Window extends javax.swing.JFrame {
         bnegro.setBackground(new java.awt.Color(0, 0, 0));
         bnegro.setFont(new java.awt.Font("SquareFont", 1, 14)); // NOI18N
         bnegro.setForeground(new java.awt.Color(255, 255, 255));
-        bnegro.setText("NEGRO");
+        bnegro.setText("BLACK");
         bnegro.setFocusable(false);
         bnegro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,7 +158,7 @@ public class Init_Window extends javax.swing.JFrame {
 
         bblanco1.setBackground(new java.awt.Color(255, 255, 255));
         bblanco1.setFont(new java.awt.Font("SquareFont", 1, 14)); // NOI18N
-        bblanco1.setText("BLANCO");
+        bblanco1.setText("WHITE");
         bblanco1.setFocusable(false);
         bblanco1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,28 +225,25 @@ public class Init_Window extends javax.swing.JFrame {
             }
         });
 
+        lfiguras1.setFont(new java.awt.Font("SquareFont", 0, 24)); // NOI18N
+        lfiguras1.setForeground(new java.awt.Color(255, 204, 0));
+        lfiguras1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lfiguras1.setText("options");
+
+        bprint.setFont(new java.awt.Font("SquareFont", 1, 14)); // NOI18N
+        bprint.setText("PRINT");
+        bprint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bprintActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelPrincipalLayout = new javax.swing.GroupLayout(PanelPrincipal);
         PanelPrincipal.setLayout(PanelPrincipalLayout);
         PanelPrincipalLayout.setHorizontalGroup(
             PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrincipalLayout.createSequentialGroup()
                 .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
-                        .addContainerGap(62, Short.MAX_VALUE)
-                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                                .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59)
-                                .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bcirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bcuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(59, 59, 59)
-                                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bestrella, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(82, 82, 82))
                     .addGroup(PanelPrincipalLayout.createSequentialGroup()
                         .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelPrincipalLayout.createSequentialGroup()
@@ -248,12 +253,35 @@ public class Init_Window extends javax.swing.JFrame {
                                 .addGap(133, 133, 133)
                                 .addComponent(lfiguras, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PanelPrincipalLayout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
                                 .addGap(135, 135, 135)
-                                .addComponent(blinea, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(blinea, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(lfiguras1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
+                        .addContainerGap(51, Short.MAX_VALUE)
+                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
+                                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                        .addComponent(bblanco1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59)
+                                        .addComponent(bnegro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(PanelPrincipalLayout.createSequentialGroup()
+                                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(bcirculo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(bcuadrado, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(59, 59, 59)
+                                        .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btriangulo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(bestrella, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(82, 82, 82))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
+                                .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(bprint, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)))))
                 .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -278,9 +306,13 @@ public class Init_Window extends javax.swing.JFrame {
                     .addComponent(bestrella, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(blinea, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGap(51, 51, 51)
+                .addComponent(lfiguras1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(PanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bclear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bprint, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrincipalLayout.createSequentialGroup()
                 .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(PanelMatriz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -794,6 +826,37 @@ public class Init_Window extends javax.swing.JFrame {
     tablero[7][7].SetColor("black");
     }//GEN-LAST:event_blineaActionPerformed
 
+    private void bprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bprintActionPerformed
+    printlist.clear();
+    for(int i = 0;i<fil;i++){
+            for(int j = 0; j<col ; j++){
+                if(tablero[i][j].getColor().equals("black")){
+                    AgregarXYtoPrint(tablero[i][j].getX(),tablero[i][j].getY());
+                }
+            }
+        }
+    
+    if(MultiploDe3(printlist.size())){
+        Carga print = new Carga(this);
+        print.start();  
+       } else {
+        while(!MultiploDe3(printlist.size())){
+            printlist.add(printlist.get(printlist.size()));
+        }
+        Carga print = new Carga(this);
+        print.start(); 
+    }
+    
+        
+    }//GEN-LAST:event_bprintActionPerformed
+
+    public boolean MultiploDe3(int x){
+        if(x % 3 == 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
   
     public static void main(String args[]) {
    
@@ -832,6 +895,7 @@ public class Init_Window extends javax.swing.JFrame {
     private javax.swing.JButton bestrella;
     private javax.swing.JButton blinea;
     private javax.swing.JButton bnegro;
+    private javax.swing.JButton bprint;
     private javax.swing.JButton btriangulo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -843,5 +907,6 @@ public class Init_Window extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JLabel lcolores;
     private javax.swing.JLabel lfiguras;
+    private javax.swing.JLabel lfiguras1;
     // End of variables declaration//GEN-END:variables
 }
