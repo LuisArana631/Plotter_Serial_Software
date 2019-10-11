@@ -1,5 +1,5 @@
 
-import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 
 public class Carga extends Thread {
    
-    private JFrame frame;
+    private final JFrame frame;
     private int round;
     private int count;
     private int total;
@@ -17,19 +17,23 @@ public class Carga extends Thread {
     public Carga(JFrame frame){
         this.round = 0;
         this.count = 0;
-        this.total = 0;
         this.frame = frame;
-        this.total = (Init_Window.printlist.size()-1)/3;
+        this.total = Init_Window.printlist.size()/3;
         port = new pPort();
         port.setAllDataBits((short)0);
     }
     
-    
-    public void Run(){
-       while (!Thread.interrupted()) {
-            try {
+    /**
+     *
+     */
+    @Override
+    public void run(){
+       
+            while(!Thread.interrupted()){
+                   try {
+
                 
-            for(Coordenada c : Init_Window.printlist){
+                     for(Coordenada c : Init_Window.printlist){
 
                     switch(c.GetY()){
                         case 0: //0000
@@ -548,8 +552,11 @@ public class Carga extends Thread {
             } 
                              
             } catch (Exception e) {
-            }                        
+            }             
+            }
+           
+                    
         }
-  }
+  
         
 }

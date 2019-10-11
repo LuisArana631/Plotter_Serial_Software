@@ -827,6 +827,7 @@ public class Init_Window extends javax.swing.JFrame {
     }//GEN-LAST:event_blineaActionPerformed
 
     private void bprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bprintActionPerformed
+    
     printlist.clear();
     for(int i = 0;i<fil;i++){
             for(int j = 0; j<col ; j++){
@@ -836,22 +837,28 @@ public class Init_Window extends javax.swing.JFrame {
             }
         }
     
-    if(MultiploDe3(printlist.size())){
+    if(!printlist.isEmpty()){
+        
+        if(MultiploDe3(printlist.size())){
         Carga print = new Carga(this);
-        print.start();  
+        print.start();
        } else {
+           
         while(!MultiploDe3(printlist.size())){
-            printlist.add(printlist.get(printlist.size()));
+            AgregarXYtoPrint(printlist.get(printlist.size()-1).GetX(),printlist.get(printlist.size()-1).GetY());
         }
         Carga print = new Carga(this);
-        print.start(); 
+        print.start();
+    }
+    } else {
+        JOptionPane.showMessageDialog(this, "¡LIENZO VACÍO, NO HAY DIBUJO PARA IMPRIMIR!");
     }
     
-        
+       
     }//GEN-LAST:event_bprintActionPerformed
 
     public boolean MultiploDe3(int x){
-        if(x % 3 == 0){
+        if(x % 3 == 0 && x!=0){
             return true;
         } else {
             return false;
