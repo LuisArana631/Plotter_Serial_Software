@@ -29,7 +29,7 @@ public class Carga extends Thread {
     @Override
     public void run(){
        
-            while(!Thread.interrupted()){
+    
                    try {
 
                 
@@ -40,7 +40,7 @@ public class Carga extends Thread {
                                 port.setPin((short)2, (short)0);
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
+                               Carga.sleep(500);
                                 port.setPin((short)3, (short)0);
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
@@ -68,7 +68,7 @@ public class Carga extends Thread {
                                 port.setPin((short)3, (short)0);
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
+                               Carga.sleep(500);
                                 port.setPin((short)3, (short)0);                               
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
@@ -364,8 +364,7 @@ public class Carga extends Thread {
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)0);  
                         break; 
-                    }
-                    
+                    }                    
                      switch(c.GetX()){
                         case 0: //0000
                                 port.setPin((short)2, (short)0);
@@ -534,6 +533,7 @@ public class Carga extends Thread {
                     }
                     
                      round++;
+                     JOptionPane.showMessageDialog(frame, "X: "+c.GetX()+", Y: "+c.GetY());
                      
                       if(round==3){
                           count++;
@@ -541,14 +541,12 @@ public class Carga extends Thread {
                             JOptionPane.showMessageDialog(frame, "¡Carga "+count+"/"+total+" terminada, presiona \"Aceptar\" para continuar");
                             round=0;
                           } else {
-                              this.interrupt();
                               JOptionPane.showMessageDialog(frame, "¡Carga terminada!");
                               round=0;
                               count=0;
                               total=0;
                           }                                              
-                   }
-                     
+                   }                    
             } 
                              
             } catch (Exception e) {
@@ -556,7 +554,7 @@ public class Carga extends Thread {
             }
            
                     
-        }
+        
   
         
 }

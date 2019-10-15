@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
 
 public class Boton extends JButton implements ActionListener {
     
-    private int x,y;
+    private int xpos,ypos;
     private String color;
     
-    public Boton(int x, int y){
-      this.x = x;
-      this.y = y;
+    public Boton(int xpos, int ypos){
+      this.xpos = xpos;
+      this.ypos = ypos;
       this.setBackground(Color.WHITE);
       this.addActionListener(this);
       this.color = "white";
@@ -23,6 +23,14 @@ public class Boton extends JButton implements ActionListener {
     
     public String getColor(){
         return this.color;
+    }
+    
+    public int getXPos(){
+        return this.xpos;
+    }
+    
+    public int getYPos(){
+        return this.ypos;
     }
     
     public void SetColor(String color){

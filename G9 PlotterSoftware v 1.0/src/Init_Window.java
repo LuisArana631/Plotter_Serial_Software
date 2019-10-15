@@ -832,7 +832,7 @@ public class Init_Window extends javax.swing.JFrame {
     for(int i = 0;i<fil;i++){
             for(int j = 0; j<col ; j++){
                 if(tablero[i][j].getColor().equals("black")){
-                    AgregarXYtoPrint(tablero[i][j].getX(),tablero[i][j].getY());
+                    AgregarXYtoPrint(j,i);
                 }
             }
         }
