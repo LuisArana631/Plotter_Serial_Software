@@ -30,10 +30,13 @@ public class Carga extends Thread {
     public void run(){
        
     
-                   try {
-
+                   try {                    
+                    port.setPin((short)2, (short)1);
+                    Carga.sleep(500);
+                    port.setPin((short)2, (short)0);
+                    Carga.sleep(500);   
                 
-                     for(Coordenada c : Init_Window.printlist){
+                    for(Coordenada c : Init_Window.printlist){
 
                     switch(c.GetY()){
                         case 0: //0000
@@ -379,11 +382,7 @@ public class Carga extends Thread {
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
-                                port.setPin((short)3, (short)0);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                                                         
+                                port.setPin((short)3, (short)0);                                                        
                         break; 
                         case 1: //0001
                                 port.setPin((short)2, (short)1);
@@ -399,11 +398,7 @@ public class Carga extends Thread {
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                               
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                            
+                                port.setPin((short)3, (short)0);                                                           
                         break; 
                         case 2: //0010
                                 port.setPin((short)2, (short)0);
@@ -420,11 +415,7 @@ public class Carga extends Thread {
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                               
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                                                                                  
+                                port.setPin((short)3, (short)0);                                                                                                                
                         break; 
                         case 3: //0011
                                 port.setPin((short)2, (short)1);
@@ -440,11 +431,7 @@ public class Carga extends Thread {
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                               
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                                                              
+                                port.setPin((short)3, (short)0);                                                                                            
                         break; 
                         case 4: //0100
                                 port.setPin((short)2, (short)0);
@@ -460,12 +447,7 @@ public class Carga extends Thread {
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
-                                port.setPin((short)3, (short)0);
-                                port.setPin((short)2, (short)0);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);                               
+                                port.setPin((short)3, (short)0);                              
                         break; 
                         case 5: //0101
                                 port.setPin((short)2, (short)1);
@@ -479,11 +461,6 @@ public class Carga extends Thread {
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)0);
                                 port.setPin((short)2, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);
-                                port.setPin((short)2, (short)0);
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
@@ -504,11 +481,6 @@ public class Carga extends Thread {
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)0);
-                                port.setPin((short)2, (short)0);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);
                         break; 
                         case 7: //0111
                                 port.setPin((short)2, (short)1);
@@ -520,11 +492,6 @@ public class Carga extends Thread {
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)0);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)1);
-                                Carga.sleep(500);
-                                port.setPin((short)3, (short)0);
-                                port.setPin((short)2, (short)0);
                                 Carga.sleep(500);
                                 port.setPin((short)3, (short)1);
                                 Carga.sleep(500);
