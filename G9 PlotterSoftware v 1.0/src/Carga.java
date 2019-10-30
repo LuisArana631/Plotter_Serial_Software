@@ -20,7 +20,7 @@ public class Carga extends Thread {
         this.frame = frame;
         this.total = Init_Window.printlist.size()/3;
         port = new pPort();
-        port.setAllDataBits((short)0);
+        port.setAllDataBits((short)1);
     }
     
     /**
@@ -31,11 +31,9 @@ public class Carga extends Thread {
        
     
                    try {                    
-                    port.setPin((short)2, (short)1);
+                    port.setAllDataBits((short)0);
                     Carga.sleep(500);
-                    port.setPin((short)2, (short)0);
-                    Carga.sleep(500);   
-                
+
                     for(Coordenada c : Init_Window.printlist){
 
                     switch(c.GetY()){
